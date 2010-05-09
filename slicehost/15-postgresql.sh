@@ -13,12 +13,12 @@ then
   exit
 fi
 
-apt-get update -y
+aptitude update -y
 
 PG_VER=8.4
 PGCONFDIR=/etc/postgresql/$PG_VER/main/
 
-apt-get install -y postgresql-$PG_VER postgresql-server-dev-$PG_VER postgresql-contrib-$PG_VER 
+aptitude install -y postgresql-$PG_VER postgresql-server-dev-$PG_VER postgresql-contrib-$PG_VER 
 
 # log and monitoring for pgAdmin
 sudo su postgres -c psql < /usr/share/postgresql/$PG_VER/contrib/adminpack.sql

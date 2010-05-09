@@ -4,9 +4,9 @@
 # Installs memcached. Installs memcache-client gem if Rubygems is installed
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y memcached
+aptitude install -y memcached
 
 if [ -e "`which gem`" ]
 then

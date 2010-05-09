@@ -6,11 +6,11 @@
 # TODO: How to set root password non-interactively?
 #
 
-apt-get update -y
+aptitude update -y
 
 MY_VER=5.1
 
-apt-get install -y mysql-server-$MY_VER mysql-client-$MY_VER libmysqlclient15-dev
+aptitude install -y mysql-server-$MY_VER mysql-client-$MY_VER libmysqlclient15-dev
 
 if [ -e "`which gem`" ]
 then

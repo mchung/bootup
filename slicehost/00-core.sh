@@ -4,9 +4,9 @@
 # Installs core development packages and users
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y build-essential gcc g++
+aptitude install -y build-essential gcc g++
 
 # setup timezone
 ln -sf /usr/share/zoneinfo/America/Phoenix /etc/localtime

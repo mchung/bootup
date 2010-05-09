@@ -4,9 +4,9 @@
 # Compiles Ruby 1.8.7-p72 and Rubygems 1.3.2 from source
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y libssl-dev libreadline5-dev zlib1g-dev
+aptitude install -y libssl-dev libreadline5-dev zlib1g-dev
 
 # Download Ruby from source, compile, and install.
 RUBY_VER=1.8.7-p174

@@ -4,8 +4,8 @@
 # Installs Nginx
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y nginx
+aptitude install -y nginx
 
 /etc/init.d/nginx restart

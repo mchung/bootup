@@ -4,6 +4,6 @@
 # Installs Sendmail.
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y sendmail
+aptitude install -y sendmail

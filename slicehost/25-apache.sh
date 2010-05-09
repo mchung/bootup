@@ -4,9 +4,9 @@
 # Installs Apache
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y apache2 apache2-prefork-dev libapr1-dev 
+aptitude install -y apache2 apache2-prefork-dev libapr1-dev 
 
 MODS="rewrite.load proxy.conf proxy.load proxy_balancer.load proxy_http.load"
 for mod in $MODS

@@ -4,9 +4,9 @@
 # Installs PHP
 #
 
-apt-get update -y
+aptitude update -y
 
-apt-get install -y php5-common php5-cgi php5-mysql php5-cli php5-gd
+aptitude install -y php5-common php5-cgi php5-mysql php5-cli php5-gd
 
 cp ~/bootstrap/config/initd-php5-fastcgi /etc/init.d/php-fastcgi
 chmod 755 /etc/init.d/php-fastcgi
