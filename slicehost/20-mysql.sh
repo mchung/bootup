@@ -22,4 +22,4 @@ fi
 # sudo cp custom.cnf /etc/mysql/my.cnf
 
 # restart to load changes
-/etc/init.d/mysql restart
+service mysql restart
