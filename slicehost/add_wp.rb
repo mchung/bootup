@@ -55,6 +55,8 @@ puts "ln -s /etc/nginx/sites-available/#{wpdom} /etc/nginx/sites-enabled/#{wpdom
 puts ""
 
 puts "make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/certs/selfsigned.pem # Use ^h to backspace"
+puts ""
+
 puts "cd /var/local/wp/#{wpdom}/private"
 puts "openssl genrsa -des3 -out #{wpdom}.key 1024"
 puts "openssl req -new -key #{wpdom}.key -out #{wpdom}.csr"
@@ -75,11 +77,11 @@ puts cat
 puts "mysql -u root -p < /tmp/mysql.sql"
 puts ""
 
-puts "cd /var/local/#{wpdom}/public"
+puts "cd /var/local/wp/#{wpdom}/public"
 puts "svn co http://svn.automattic.com/wordpress/tags/2.9.2 ."
-puts "chown -R app:app /var/local/#{wpdom}"
-puts "chmod -R 755 /var/local#{wpdom}"
-puts "chmod -R -s /var/local#{wpdom}"
+puts "chown -R app:app /var/local/wp/#{wpdom}"
+puts "chmod -R 755 /var/local/wp/#{wpdom}"
+puts "chmod -R -s /var/local/wp/#{wpdom}"
 puts ""
 
 puts "Setup wordpress"
