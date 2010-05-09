@@ -43,15 +43,18 @@ puts "mkdir -p /var/local/wp/#{wordpress_domain}/{public,private,log,backup}"
 puts "chown -R app:app /var/local/wp/#{wordpress_domain}"
 puts "copy over #{wordpress_domain} the nginx wordpress # need to generate it and dump it into /etc/nginx/sites-available/"
 puts "ln -s /etc/nginx/sites-available/#{wordpress_domain} /etc/nginx/sites-enabled/#{wordpress_domain}"
+
 puts "make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/certs/selfsigned.pem # Use ^h to backspace"
 puts "cd /var/local/wp/#{wordpress_domain}/private"
 puts "openssl genrsa -des3 -out #{wordpress_domain}.key 1024"
 puts "openssl req -new -key #{wordpress_domain}.key -out #{wordpress_domain}.csr"
+puts "cp #{wordpress_domain}.key #{wordpress_domain}.key.orig"
+puts "openssl rsa -in #{wordpress_domain}.key.orig -out #{wordpress_domain}.key"
+puts "openssl x509 -req -days 3650 -in #{wordpress_domain}.csr -signkey #{wordpress_domain}.key -out #{wordpress_domain}.crt"
+puts "cp #{wordpress_domain}.crt /etc/ssl/certs/"
+puts "cp #{wordpress_domain}.key /etc/ssl/private/"
+
 puts "mysqladmin create db"
 puts "mysqladmin create user"
 puts "setup SSL"
 puts "restart nginx"
-
-# http://articles.slicehost.com/2007/11/26/ubuntu-gutsy-generating-a-self-signed-ssl-certificate
-# http://articles.slicehost.com/2007/12/19/ubuntu-gutsy-self-signed-ssl-certificates-and-nginx
-# http://articles.slicehost.com/2007/12/19/ubuntu-gutsy-nginx-ssl-and-vhosts
