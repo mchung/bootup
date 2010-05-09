@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require 'activeresource'
+require 'active_resource'
 
 #
 # This script was taken from http://github.com/postpostmodern/slicehost-dns/tree/master on Jan 22, 2009
