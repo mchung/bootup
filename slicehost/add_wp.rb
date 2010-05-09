@@ -39,10 +39,14 @@ puts wordpress_domain
 #   exit
 # fi
 
-puts "mkdir /var/local/wp/#{wordpress_domain}"
-puts "copy over the nginx wordpress"
+puts "mkdir -p /var/local/wp/#{wordpress_domain}/{public,private,log,backup}"
+puts "chown -R app:app /var/local/wp/#{wordpress_domain}"
+puts "copy over #{wordpress_domain} the nginx wordpress # need to generate it and dump it into /etc/nginx/sites-available/"
+puts "ln -s /etc/nginx/sites-available/#{wordpress_domain} /etc/nginx/sites-enabled/#{wordpress_domain}"
 puts "make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/certs/selfsigned.pem # Use ^h to backspace"
-puts "openssl genrsa -des3 -out myssl.key 1024"
+puts "cd /var/local/wp/#{wordpress_domain}/private"
+puts "openssl genrsa -des3 -out #{wordpress_domain}.key 1024"
+puts "openssl req -new -key #{wordpress_domain}.key -out #{wordpress_domain}.csr"
 puts "mysqladmin create db"
 puts "mysqladmin create user"
 puts "setup SSL"
