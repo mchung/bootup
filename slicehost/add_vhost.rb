@@ -8,7 +8,7 @@ help = <<HELP
 $0 is a friendly VirtualHost generating script
  
 Basic Command Line Usage:
-  add_host.rb --host=foo.com --ports=5000-5010
+  #{__FILE__} --host=foo.com --ports=5000-5010
   Options:
 HELP
 
@@ -29,7 +29,7 @@ end
 
 opts.parse!
 
-template = ERB.new(File.read("../config/etc/apache/sites-available/apache-site.conf"))
+template = ERB.new(File.read("~/bootstrap/config/etc/apache/sites-available/apache-site.conf"))
 
 `mkdir -p /var/local/#{DOMAIN[:host]}/shared/log`
 `mkdir -p /var/local/#{DOMAIN[:host]}/shared/config`
