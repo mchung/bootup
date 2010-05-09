@@ -23,3 +23,6 @@ fi
 
 # restart to load changes
 service mysql restart
+
+# secure mysql
+mysql_secure_installation
