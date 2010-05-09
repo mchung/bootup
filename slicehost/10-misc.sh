@@ -6,7 +6,7 @@
 
 apt-get update -y
 
-apt-get install -y locate git-core git-doc tree emacs22-nox screen nmap sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1.1 libxslt1-dev 
+apt-get install -y locate git-core git-doc tree emacs22-nox screen nmap sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1.1 libxslt1-dev subversion ssl-cert
 
 updatedb
 
