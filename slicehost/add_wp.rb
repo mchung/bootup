@@ -48,7 +48,6 @@ dbuser = WORDPRESS[:dbuser]
 dbpass = WORDPRESS[:dbpass]
 
 puts "mkdir -p /var/local/wp/#{wpdom}/{public,private,log,backup}"
-puts "chown -R app:app /var/local/wp/#{wpdom}"
 puts "copy over #{wpdom} the nginx wordpress # need to generate it and dump it into /etc/nginx/sites-available/"
 puts "ln -s /etc/nginx/sites-available/#{wpdom} /etc/nginx/sites-enabled/#{wpdom}"
 
@@ -71,9 +70,11 @@ EOF
 puts cat
 puts "mysql -u root -p < /tmp/mysql.sql"
 
-puts "cd /var/local#{wpdom}/public"
+puts "cd /var/local/#{wpdom}/public"
 puts "svn co http://svn.automattic.com/wordpress/tags/2.9.2 ."
-puts "chown -R app:app /var/local/#{wpdom}/public"
+puts "chown -R app:app /var/local/#{wpdom}"
+puts "chmod -R 755 /var/local#{wpdom}"
+puts "chmod -R -s /var/local#{wpdom}"
 
 puts "Setup wordpress"
 
