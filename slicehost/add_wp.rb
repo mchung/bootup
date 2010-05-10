@@ -50,8 +50,10 @@ dbpass = WORDPRESS[:dbpass]
 raise "Requires --wordpress, --dbname, --dbuser, --dbpass" unless wpdom && dbname && dbuser && dbpass
 
 puts "mkdir -p /var/local/wp/#{wpdom}/{public,private,log,backup}"
-puts "copy over #{wpdom} the nginx wordpress # need to generate it and dump it into /etc/nginx/sites-available/"
-puts "ln -s /etc/nginx/sites-available/#{wpdom} /etc/nginx/sites-enabled/#{wpdom}"
+puts ""
+puts "Copy nginx-wp to /var/local/wp/#{wpdom}/private/nginx"
+puts ""
+puts "ln -s /var/local/wp/#{wpdom}/private/nginx /etc/nginx/sites-enabled/#{wpdom}"
 puts ""
 
 puts "make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/certs/selfsigned.pem # Use ^h to backspace"
@@ -73,6 +75,7 @@ CREATE DATABASE #{dbname};
 GRANT ALL ON #{dbname}.* TO #{dbuser}@localhost IDENTIFIED BY "#{dbpass}"
 EOF
 # cat > /tmp/mysql.sql <<EOF
+puts "/var/local/wp/#{wpdom}/private/mysql"
 puts cat
 puts "mysql -u root -p < /tmp/mysql.sql"
 puts ""
