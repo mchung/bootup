@@ -29,7 +29,7 @@ end
 
 opts.parse!
 
-template = ERB.new(File.read("~/bootstrap/config/etc/apache/sites-available/apache-site.conf"))
+template = ERB.new(File.read("~/bootup/config/etc/apache/sites-available/apache-site.conf"))
 
 `mkdir -p /var/local/#{DOMAIN[:host]}/shared/log`
 `mkdir -p /var/local/#{DOMAIN[:host]}/shared/config`

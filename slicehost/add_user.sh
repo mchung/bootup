@@ -14,7 +14,7 @@ fi
 useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
 
 mkdir /home/$USERNAME/.ssh
-cp ~/bootstrap/config/default_authorized_keys /home/$USERNAME/.ssh/authorized_keys
+cp ~/bootup/config/default_authorized_keys /home/$USERNAME/.ssh/authorized_keys
 chmod 700 /home/$USERNAME/.ssh/
 chmod 600 /home/$USERNAME/.ssh/authorized_keys
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh/
